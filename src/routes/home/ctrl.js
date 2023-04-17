@@ -1,5 +1,7 @@
 "use strict";
 
+const UserStorage = require('../../model/UserStorage');
+
 const output = {
     home: (req, res) => {
         res.render('index');
@@ -10,17 +12,13 @@ const output = {
     }
 }
 
-const user = {
-    id: [
-        "qwq008", "qwq6485"
-    ],
-    pw: ["@qwq854588", "qwq854588"]
-}
+
 
 const process = {
     login: (req, res) => {
         const id = req.body.id,
-            pw = req.body.pw;
+        pw = req.body.pw;
+        const user = UserStorage.getUser();
         if (user.id.includes(id)) {
             const idx = user
                 .id
