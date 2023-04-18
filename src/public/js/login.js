@@ -14,6 +14,8 @@ window.onload = function () {
             pw: pw.value
         }
         console.log(JSON.stringify(req1));
+
+        
         fetch("/login", {
             method: "POST",
             headers: {
